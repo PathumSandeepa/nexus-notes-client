@@ -74,7 +74,7 @@ export const useNotes = () => {
       const response = await api.post("/api/notes/upload/", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      return response.data?.data || null;
+      return response.data?.data?.url || null;
     } catch (error) {
       const err = error as any;
       setError(err.response?.data?.message || err.message || "Failed to upload file");
